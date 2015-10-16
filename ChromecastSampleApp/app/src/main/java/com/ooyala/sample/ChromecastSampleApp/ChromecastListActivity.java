@@ -45,14 +45,15 @@ public class ChromecastListActivity extends ActionBarActivity {
         new ChromecastPlayerSelectionOption("Encrypted HLS Asset", "ZtZmtmbjpLGohvF5zBLvDyWexJ70KsL-", "FoeG863GnBL4IhhlFC1Q2jqbkH9m", "http://www.ooyala.com"),
         // Will play Playready Smooth on Chromecast, Clear HLS on device
         new ChromecastPlayerSelectionOption("Playready Smooth, Clear HLS Backup", "pkMm1rdTqIAxx9DQ4-8Hyp9P_AHRe4pt", "FoeG863GnBL4IhhlFC1Q2jqbkH9m", "http://www.ooyala.com"),
-
+        new ChromecastPlayerSelectionOption("VAST Preroll", "Zlcmp0ZDrpHlAFWFsOBsgEXFepeSXY4c", "f34784cb010846369c31af0bdd0ec83e", "http://www.ooyala.com"),
+        new ChromecastPlayerSelectionOption("VAST Midroll", "pncmp0ZDp7OKlwTPJlMZzrI59j8Imefa", "f34784cb010846369c31af0bdd0ec83e", "http://www.ooyala.com"),
 
         //These asset will not be configured correctly. To test your OPT-enabled assets, you need:
         // 1. an OPT-enabled embed code (set here)
         // 2. the correlating PCode (set in the PlayerViewController)
         // 3. an API Key and Secret for the provider to locally-sign the authorization (set in the PlayerViewController)
-        new ChromecastPlayerSelectionOption("Ooyala Player Token Asset (unconfigured)", "0yMjJ2ZDosUnthiqqIM3c8Eb8Ilx5r52", "FoeG863GnBL4IhhlFC1Q2jqbkH9m", "http://www.ooyala.com"),
-        new ChromecastPlayerSelectionOption("Concurrent Streams (unconfigured)", "pwc3J0dTpAL7gMLFNVt2ks2v8j3qOKCS", "FoeG863GnBL4IhhlFC1Q2jqbkH9m", "http://www.ooyala.com"),
+//        new ChromecastPlayerSelectionOption("Ooyala Player Token Asset (unconfigured)", "0yMjJ2ZDosUnthiqqIM3c8Eb8Ilx5r52", "FoeG863GnBL4IhhlFC1Q2jqbkH9m", "http://www.ooyala.com"),
+//        new ChromecastPlayerSelectionOption("Concurrent Streams (unconfigured)", "pwc3J0dTpAL7gMLFNVt2ks2v8j3qOKCS", "FoeG863GnBL4IhhlFC1Q2jqbkH9m", "http://www.ooyala.com"),
 
     };
     //Create the adapter for the ListView
