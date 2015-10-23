@@ -87,7 +87,7 @@ public class ChromecastListActivity extends ActionBarActivity {
     title.setTextColor(Color.BLACK);
     TextView subtitle = (TextView)defaultMiniController.findViewById(R.id.subtitle_view);
     subtitle.setTextColor(Color.GRAY);
-    CastManager.getVideoCastManager().addMiniController(defaultMiniController);
+    CastManager.getCastManager().addMiniController(defaultMiniController);
 
 // Uncomment it if you want to activate the customized sample app in our sample app
 //    customizedMiniController = (OOMiniController) findViewById(R.id.miniController2);
@@ -110,19 +110,13 @@ public class ChromecastListActivity extends ActionBarActivity {
   @Override
   protected void onDestroy() {
     Log.d(TAG, "onDestroy()");
-    CastManager.getVideoCastManager().removeMiniController(defaultMiniController);
+    CastManager.getCastManager().removeMiniController(defaultMiniController);
     super.onDestroy();
   }
 
   @Override
   public void onResume() {
     super.onResume();
-    if (CastManager.getCastManager().isInCastMode()) {
-      defaultMiniController.setVisibility(View.VISIBLE);
-    }
-// Uncomment it if you want to activate the customized sample app in our sample app
-//      castManager.addMiniController(customizedMiniController);
-//      this.customizedMiniController.show();
     CastManager.getCastManager().onResume();
     Log.d(TAG, "onResume()");
   }
