@@ -46,7 +46,7 @@ public class ChromecastListActivity extends ActionBarActivity {
         // Will play Playready Smooth on Chromecast, Clear HLS on device
         new ChromecastPlayerSelectionOption("Playready Smooth, Clear HLS Backup", "pkMm1rdTqIAxx9DQ4-8Hyp9P_AHRe4pt", "FoeG863GnBL4IhhlFC1Q2jqbkH9m", "http://www.ooyala.com"),
         new ChromecastPlayerSelectionOption("VAST Preroll", "Zlcmp0ZDrpHlAFWFsOBsgEXFepeSXY4c", "f34784cb010846369c31af0bdd0ec83e", "http://www.ooyala.com"),
-        new ChromecastPlayerSelectionOption("VAST Midroll", "pncmp0ZDp7OKlwTPJlMZzrI59j8Imefa", "f34784cb010846369c31af0bdd0ec83e", "http://www.ooyala.com"),
+        new ChromecastPlayerSelectionOption("VAST Midroll", "h0MnJjeDqeDCeAG5f6oVeg-AgcHbn752", "f34784cb010846369c31af0bdd0ec83e", "http://www.ooyala.com"),
 
         //These asset will not be configured correctly. To test your OPT-enabled assets, you need:
         // 1. an OPT-enabled embed code (set here)
