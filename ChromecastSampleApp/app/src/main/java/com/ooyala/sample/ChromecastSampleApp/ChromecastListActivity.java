@@ -43,6 +43,7 @@ public class ChromecastListActivity extends ActionBarActivity {
         new ChromecastPlayerSelectionOption("MP4 Video", "h4aHB1ZDqV7hbmLEv4xSOx3FdUUuephx", "FoeG863GnBL4IhhlFC1Q2jqbkH9m", "http://www.ooyala.com"),
         new ChromecastPlayerSelectionOption("VOD CC", "92cWp0ZDpDm4Q8rzHfVK6q9m6OtFP-ww", "FoeG863GnBL4IhhlFC1Q2jqbkH9m", "http://www.ooyala.com"),
         new ChromecastPlayerSelectionOption("Encrypted HLS Asset", "ZtZmtmbjpLGohvF5zBLvDyWexJ70KsL-", "FoeG863GnBL4IhhlFC1Q2jqbkH9m", "http://www.ooyala.com"),
+        new ChromecastPlayerSelectionOption("Sintel with midroll", "h0MnJjeDqeDCeAG5f6oVeg-AgcHbn752", "FoeG863GnBL4IhhlFC1Q2jqbkH9m", "http://www.ooyala.com"),
         // Will play Playready Smooth on Chromecast, Clear HLS on device
         new ChromecastPlayerSelectionOption("Playready Smooth, Clear HLS Backup", "pkMm1rdTqIAxx9DQ4-8Hyp9P_AHRe4pt", "FoeG863GnBL4IhhlFC1Q2jqbkH9m", "http://www.ooyala.com"),
 
