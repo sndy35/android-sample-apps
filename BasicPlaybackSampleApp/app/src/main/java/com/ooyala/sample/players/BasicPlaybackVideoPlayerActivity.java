@@ -95,6 +95,49 @@ public class BasicPlaybackVideoPlayerActivity extends Activity implements Observ
       return;
     }
 
+    // Hook to write Notifications to a temporary file on the device/emulator
+    // Keeps track of incoming notifications and makes sure count is right
+    count++ ;
+    String text="Notification Received: " + arg1 + " - state: " + player.getState() + "count: " +count;
+
+    //Empty Logcat buffer 
+    if(count==1) {
+
+      try {
+        Process process = new ProcessBuilder().command("logcat", "-c").redirectErrorStream(true).start();
+      } catch (IOException e) {
+      }
+    }
+
+    //Writing events into file on device
+    File logFile = new File("sdcard/log.file");
+    if (!logFile.exists())
+    {
+      try
+      {
+        logFile.createNewFile();
+      }
+      catch (IOException e)
+      {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    }
+    try
+    {
+      //BufferedWriter for performance, true to set append to file flag
+      BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
+      buf.append(text);
+      buf.newLine();
+      buf.close();
+    }
+    catch (IOException e)
+    {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+
     Log.d(TAG, "Notification Received: " + arg1 + " - state: " + player.getState());
   }
 
