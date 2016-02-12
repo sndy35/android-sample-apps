@@ -7,6 +7,8 @@ import android.util.Log;
 import com.ooyala.android.OoyalaPlayer;
 import com.ooyala.android.OoyalaPlayerLayout;
 import com.ooyala.android.PlayerDomain;
+import com.ooyala.android.ui.DefaultOoyalaPlayerInlineControls;
+import com.ooyala.android.ui.OoyalaPlayerControls;
 import com.ooyala.android.ui.OoyalaPlayerLayoutController;
 import com.ooyala.sample.R;
 import com.ooyala.sample.utils.BasicPlaybackSampleAppLog;
@@ -46,7 +48,8 @@ public class BasicPlaybackVideoPlayerActivity extends Activity implements Observ
     player = new OoyalaPlayer(PCODE, new PlayerDomain(DOMAIN));
     playerLayoutController = new OoyalaPlayerLayoutController(playerLayout, player);
     player.addObserver(this);
-
+    playerLayoutController.setFullscreenOverlay(new WatermarkOverlay(this.getApplicationContext()));
+//    playerLayoutController.setInlineOverlay(new WatermarkOverlay(this.getApplicationContext()));
     if (player.setEmbedCode(EMBED)) {
       player.play();
     }
