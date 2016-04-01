@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.ooyala.android.OoyalaPlayer;
-import com.ooyala.android.OoyalaNotification;
 import com.ooyala.android.OoyalaPlayerLayout;
 import com.ooyala.android.PlayerDomain;
 import com.ooyala.android.configuration.VisualOnConfiguration;
@@ -93,12 +92,12 @@ public class SecurePlayerPrePersonalizedPlayerActivity extends Activity implemen
       return;
     }
 
-    final String arg1 = OoyalaNotification.getNameOrUnknown(argN);
-    if (arg1 == OoyalaPlayer.TIME_CHANGED_NOTIFICATION_NAME) {
+    final String arg1 = (String)argN;
+    if (arg1 == OoyalaPlayer.TIME_CHANGED_NOTIFICATION) {
       return;
     }
 
-    if (arg1 == OoyalaPlayer.ERROR_NOTIFICATION_NAME) {
+    if (arg1 == OoyalaPlayer.ERROR_NOTIFICATION) {
       final String msg = "Error Event Received";
       if (player != null && player.getError() != null) {
         Log.e(TAG, msg, player.getError());
