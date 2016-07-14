@@ -11,8 +11,9 @@ public class PlayerSelectionOption {
   private Class <? extends Activity> activity;
   private String pcode;
   private String domain;
+  private String description;
 
-  public PlayerSelectionOption(String embedCode, String pcode, String domain, Class<? extends Activity> activity) {
+  public PlayerSelectionOption(String embedCode, String pcode, String domain, Class<? extends Activity> activity, String description) {
     this.embedCode = embedCode;
     this.activity = activity;
     this.pcode = pcode;
