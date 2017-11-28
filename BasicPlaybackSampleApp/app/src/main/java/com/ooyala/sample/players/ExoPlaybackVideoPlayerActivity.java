@@ -4,26 +4,23 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.ooyala.android.OoyalaPlayer;
-import com.ooyala.android.OoyalaPlayerLayout;
 import com.ooyala.android.PlayerDomain;
-import com.ooyala.android.ui.OoyalaPlayerLayoutController;
+import com.ooyala.android.ui.ExoPlayerLayoutController;
 import com.ooyala.sample.R;
 
 /**
- * This activity illustrates how you can play basicPlayback Video
- * you can also play Ooyala and VAST advertisements programmatically
- * through the SDK
+ * This activity illustrates how you can play basicPlayback Video with ExoPlayer UI
  *
  */
-public class BasicPlaybackVideoPlayerActivity extends AbstractHookActivity {
+public class ExoPlaybackVideoPlayerActivity extends AbstractHookActivity {
 
   @Override
   void completePlayerSetup(boolean asked) {
 	if (asked) {
 	  player = new OoyalaPlayer(pcode, new PlayerDomain(domain));
-	  playerLayout = (OoyalaPlayerLayout) findViewById(R.id.ooyalaPlayer);
+	  playerLayout = findViewById(R.id.ooyalaPlayer);
 
-	  OoyalaPlayerLayoutController playerLayoutController = new OoyalaPlayerLayoutController(playerLayout, player);
+	  ExoPlayerLayoutController playerLayoutController = new ExoPlayerLayoutController(playerLayout, player);
 	  player.addObserver(this);
 
 	  if (player.setEmbedCode(embedCode)) {
