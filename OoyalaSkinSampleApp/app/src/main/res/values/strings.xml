@@ -2,5 +2,7 @@
 <resources>
 
     <string name="app_name">Ooyala Skin Sample App</string>
+    <string name="title_activity_codec_support">CodecSupportActivity</string>
+    <string name="hevc_support">Can I play HEVC?</string>
 
 </resources>

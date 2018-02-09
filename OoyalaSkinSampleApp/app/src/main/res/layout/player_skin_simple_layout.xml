@@ -13,6 +13,10 @@
         android:layout_gravity="center_horizontal|top"
         android:layout_weight="4"
         android:background="#000" >
+        <TextView
+            android:id="@+id/debugText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </com.ooyala.android.skin.OoyalaSkinLayout>
 
 </RelativeLayout>

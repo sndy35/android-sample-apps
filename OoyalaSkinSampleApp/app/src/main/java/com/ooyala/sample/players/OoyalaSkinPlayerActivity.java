@@ -2,6 +2,7 @@ package com.ooyala.sample.players;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.ooyala.android.OoyalaPlayer;
 import com.ooyala.android.PlayerDomain;
@@ -20,12 +21,16 @@ import org.json.JSONObject;
  *
  */
 public class OoyalaSkinPlayerActivity extends AbstractHookActivity {
+	TextView debugText;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.player_skin_simple_layout);
 		completePlayerSetup(asked);
+
+		debugText = findViewById(R.id.debugText);
+		debugText.setText("Debug mode");
 	}
 
 	@Override
