@@ -99,6 +99,7 @@ public abstract class AbstractHookActivity extends Activity implements Observer,
 	public void update(Observable arg0, Object argN) {
 		final String arg1 = OoyalaNotification.getNameOrUnknown(argN);
 		if (arg1 == OoyalaPlayer.TIME_CHANGED_NOTIFICATION_NAME) {
+			Log.d(TAG, "playhead: " + player.getPlayheadTime());
 			return;
 		}
 

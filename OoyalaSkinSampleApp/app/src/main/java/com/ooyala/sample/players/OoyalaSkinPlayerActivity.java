@@ -2,10 +2,14 @@ package com.ooyala.sample.players;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.ooyala.android.OoyalaPlayer;
 import com.ooyala.android.PlayerDomain;
 import com.ooyala.android.configuration.Options;
+import com.ooyala.android.item.Stream;
+import com.ooyala.android.item.UnbundledVideo;
 import com.ooyala.sample.R;
 import com.ooyala.android.skin.OoyalaSkinLayout;
 import com.ooyala.android.skin.OoyalaSkinLayoutController;
@@ -21,11 +25,21 @@ import org.json.JSONObject;
  */
 public class OoyalaSkinPlayerActivity extends AbstractHookActivity {
 
+	Button seekBtn;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.player_skin_simple_layout);
 		completePlayerSetup(asked);
+
+		seekBtn = findViewById(R.id.seekBtn);
+		seekBtn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				player.seek(10000);
+			}
+		});
 	}
 
 	@Override
@@ -45,10 +59,13 @@ public class OoyalaSkinPlayerActivity extends AbstractHookActivity {
 			playerLayoutController.addObserver(this);
 			player.addObserver(this);
 
-			if (player.setEmbedCode(embedCode)) {
-			} else {
-				Log.e(TAG, "Asset Failure");
-			}
+			Stream stream = new Stream("https://siriusxm-no-token-priuatlivevideo.siriusxm.com/video/d691737e967a4a5d979755ceb8a116e4/ha?ssai_guid=cc204f61-88da-45f1-8d77-2d45db7feb28", Stream.DELIVERY_TYPE_HLS);
+			UnbundledVideo unbundledVideo = new UnbundledVideo(stream);
+			player.setUnbundledVideo(unbundledVideo);
+//			if (player.setEmbedCode(embedCode)) {
+//			} else {
+//				Log.e(TAG, "Asset Failure");
+//			}
 		}
 	}
 
