@@ -3,6 +3,9 @@ package com.ooyala.sample.players;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.google.android.exoplayer2.metadata.Metadata;
+import com.google.android.exoplayer2.metadata.id3.PrivFrame;
+import com.ooyala.android.ID3TagNotifier;
 import com.ooyala.android.OoyalaPlayer;
 import com.ooyala.android.PlayerDomain;
 import com.ooyala.android.configuration.Options;
@@ -19,7 +22,9 @@ import org.json.JSONObject;
  * through the SDK
  *
  */
-public class OoyalaSkinPlayerActivity extends AbstractHookActivity {
+public class OoyalaSkinPlayerActivity extends AbstractHookActivity implements ID3TagNotifier.ID3TagNotifierListener {
+
+	ID3TagNotifier tagNotifier;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,7 @@ public class OoyalaSkinPlayerActivity extends AbstractHookActivity {
 			PlayerDomain playerDomain = new PlayerDomain(domain);
 			Options options = new Options.Builder().setShowNativeLearnMoreButton(false).setShowPromoImage(false).setUseExoPlayer(true).build();
 			player = new OoyalaPlayer(pcode, playerDomain, options);
+
 			//Create the SkinOptions, and setup React
 			JSONObject overrides = createSkinOverrides();
 			SkinOptions skinOptions = new SkinOptions.Builder().setSkinOverrides(overrides).build();
@@ -44,6 +50,9 @@ public class OoyalaSkinPlayerActivity extends AbstractHookActivity {
 			//Add observer to listen to fullscreen open and close events
 			playerLayoutController.addObserver(this);
 			player.addObserver(this);
+
+			tagNotifier = ID3TagNotifier.s_getInstance();
+			tagNotifier.addWeakListener(this);
 
 			if (player.setEmbedCode(embedCode)) {
 			} else {
@@ -70,5 +79,19 @@ public class OoyalaSkinPlayerActivity extends AbstractHookActivity {
 //      Log.e(TAG, "Exception Thrown", e);
 //    }
 		return overrides;
+	}
+
+	@Override
+	public void onMetadata(Metadata metadata) {
+		Log.d(TAG,   "onMetadata :");
+		for (int i = 0; i < metadata.length(); i++) {
+			Metadata.Entry entry = metadata.get(i);
+
+			if (entry instanceof PrivFrame) {
+				PrivFrame privFrame = (PrivFrame) entry;
+				Log.d(TAG, "owner " + privFrame.owner + " ID " + privFrame.id + " data " + privFrame.privateData);
+			}
+
+		}
 	}
 }
