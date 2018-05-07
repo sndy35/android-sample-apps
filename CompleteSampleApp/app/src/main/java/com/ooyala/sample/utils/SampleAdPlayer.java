@@ -5,7 +5,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.content.Context;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
@@ -157,11 +156,6 @@ public class SampleAdPlayer extends LinearLayout implements PlayerInterface,
     if (getParent() != null) {
       ((ViewGroup) getParent()).removeView(this);
     }
-  }
-
-  @Override
-  public void configurationChanged(Configuration newConfig) {
-    // TODO Auto-generated method stub
   }
 
   @Override

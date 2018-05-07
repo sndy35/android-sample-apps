@@ -1,6 +1,5 @@
 package com.ooyala.sample.screen;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -132,14 +131,6 @@ public class VideoFragment extends Fragment implements Observer, DefaultHardware
       }
     }
     changeToolbarVisibilityInFullscreenMode(arg);
-  }
-
-  @Override
-  public void onConfigurationChanged(Configuration newConfig) {
-    super.onConfigurationChanged(newConfig);
-    if (player != null) {
-      player.configurationChanged(newConfig);
-    }
   }
 
   public void applyADSManager(OoyalaSkinLayout skinLayout) {
